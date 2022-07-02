@@ -1,14 +1,14 @@
 import React from 'react';
-import GlobalStyles from './global-styles';
-import {MainMenu} from "./components/MainMenu";
 import {BrowserRouter} from "react-router-dom";
+import GlobalStyles from './global-styles';
+import Layout from "./components/Layout";
 
 const App = () => {
     return (
         <React.StrictMode>
             <BrowserRouter>
                 <GlobalStyles/>
-                <MainMenu/>
+                <Layout/>
             </BrowserRouter>
         </React.StrictMode>
     );
