@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import Logo from '../assets/logo/Logo.svg'
+import {ReactComponent as Logo} from '../assets/logo/Logo.svg'
 import {MainMenu} from "./MainMenu";
 
 const MainContainer = styled.div`
@@ -39,7 +39,7 @@ const MainContainer = styled.div`
 const MainSection = () => {
     return (
         <MainContainer>
-            <img src={Logo} alt="PetsPaw logo"/>
+            <Logo/>
             <h4 className="title">Hi intern!</h4>
             <p className="description">Welcome to MI 2022 Front-end test</p>
             <p className="menu_title">Lets start using The Cat API</p>
