@@ -9,6 +9,7 @@ export default createGlobalStyle`
         font-family: 'Jost', sans-serif; 
     }
     #root {
+        height: 100vh;
         margin:0 auto;
     }
 `;
