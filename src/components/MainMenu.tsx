@@ -1,11 +1,16 @@
+/*node-modules*/
 import React from 'react';
 import styled from "styled-components";
-import {NavLink} from "react-router-dom";
-import {MenuCard} from "./MenuCard";
-import {MenuButton} from "./MenuButton";
-import VotingImage from '../../assets/images/vote-table.png';
-import BreedsImage from '../../assets/images/pet-breeds.png';
-import GalleryImage from '../../assets/images/images-search.png';
+import {NavLink} from 'react-router-dom';
+
+/*components*/
+import {MenuCard} from './MenuCard';
+import {MenuButton} from './Buttons/MenuButton';
+
+/*images*/
+import VotingImage from '../assets/images/vote-table.png';
+import BreedsImage from '../assets/images/pet-breeds.png';
+import GalleryImage from '../assets/images/images-search.png';
 
 
 const MainMenuContainer = styled.div`
@@ -16,7 +21,7 @@ const MainMenuContainer = styled.div`
   .active {
     ${MenuCard} {
       border: 4px solid #FBE0DC;
-    }
+    } 
 
     ${MenuButton} {
       background: #FF868E;
@@ -25,7 +30,7 @@ const MainMenuContainer = styled.div`
   }
 `;
 
-export const MainMenu = () => {
+const MainMenu = () => {
     return (
         <MainMenuContainer>
             <NavLink to="voting">
@@ -49,3 +54,5 @@ export const MainMenu = () => {
         </MainMenuContainer>
     );
 };
+
+export default MainMenu;

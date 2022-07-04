@@ -1,6 +1,9 @@
+/*node-modules*/
 import React from 'react';
-import {ReactComponent as SearchIcon} from '../assets/icons/search.svg'
-import styled from "styled-components";
+import styled from 'styled-components';
+
+/*icons*/
+import {ReactComponent as SearchIcon} from '../../assets/icons/search.svg'
 
 const SearchContainer = styled.div`
   width: 470px;

@@ -1,12 +1,17 @@
+/*node-modules*/
 import React from 'react';
-import styled from "styled-components";
-import {ReactComponent as Logo} from '../assets/logo/Logo.svg'
-import {MainMenu} from "./MainMenu";
+import styled from 'styled-components';
+
+/*components*/
+import MainMenu from '../MainMenu';
+
+/*icons*/
+import {ReactComponent as Logo} from '../../assets/logo/Logo.svg'
 
 const MainContainer = styled.div`
   width: 446px;
   height: 544px;
-  top: 30px;
+  top: 10px;
   position: sticky;
   margin-left: 117px;
 
@@ -36,7 +41,7 @@ const MainContainer = styled.div`
   }
 `
 
-const MainSection = () => {
+export const MainSection = () => {
     return (
         <MainContainer>
             <Logo/>
@@ -47,5 +52,3 @@ const MainSection = () => {
         </MainContainer>
     );
 };
-
-export default MainSection;

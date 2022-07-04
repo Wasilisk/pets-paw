@@ -1,10 +1,16 @@
+/*node-modules*/
 import React from 'react';
-import styled from "styled-components";
-import {IconLink} from "./IconLink";
-import { ReactComponent as LikeIcon } from '../assets/icons/like.svg';
-import { ReactComponent as FavouriteIcon } from '../assets/icons/favourite.svg';
-import { ReactComponent as DislikeIcon } from '../assets/icons/dislike.svg';
-import Search from "./Search";
+import styled from 'styled-components';
+
+/*components*/
+import {IconLink} from './IconLink';
+import Search from './Search';
+
+/*icons*/
+import { ReactComponent as LikeIcon } from '../../assets/icons/like.svg';
+import { ReactComponent as FavouriteIcon } from '../../assets/icons/favourite.svg';
+import { ReactComponent as DislikeIcon } from '../../assets/icons/dislike.svg';
+
 
 const NavbarContainer = styled.div`
   width: 100%;

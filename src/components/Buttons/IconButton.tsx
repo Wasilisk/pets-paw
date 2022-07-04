@@ -1,6 +1,7 @@
-import styled from "styled-components";
+/*node-modules*/
 import React from 'react';
-import {useNavigate} from "react-router-dom";
+import styled from 'styled-components';
+import {useNavigate} from 'react-router-dom';
 
 type IconButtonElementProps = {
     variant: "primary" | "secondary",
@@ -12,7 +13,7 @@ const IconButtonElement = styled.button<IconButtonElementProps>`
   width: 40px;
   height: 40px;
   border: none;
-  background: ${({variant}) => "primary" ? "#FBE0DC" : "#FFFFFF"};
+  background: ${({variant}) => variant === "primary" ? "#FBE0DC" : "#FFFFFF"};
   border-radius: 10px;
   display: flex;
   justify-content: center;

@@ -1,5 +1,8 @@
+/*node-modules*/
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
+
+/*image*/
 import MainBanner from '../assets/images/main-banner.png'
 
 const HomeBannerContainer = styled.div`

@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-interface MenuCardProps {
+type MenuCardProps = {
     readonly backgroundColor: string
 }
 
