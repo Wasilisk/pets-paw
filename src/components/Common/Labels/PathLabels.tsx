@@ -8,7 +8,6 @@ const PathLabel = styled.div`
   padding: 5px 30px;
   background: #FBE0DC;
   border-radius: 10px;
-  margin-left: 10px;
   color: #FF868E;
   font-weight: 500;
   font-size: 20px;
@@ -16,6 +15,10 @@ const PathLabel = styled.div`
   text-align: center;
   letter-spacing: 2px;
   text-transform: uppercase;
+  
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
 `
 
 const PathLabelsContainer = styled.div`
@@ -29,16 +32,14 @@ const PathLabelsContainer = styled.div`
   }
 `;
 
-const PathLabels = () => {
+export const PathLabels = () => {
     const  location = useLocation();
     const locationValues = location.pathname.substring(1).split("/");
     return (
         <PathLabelsContainer>
             {
-                locationValues.map(value => <PathLabel>{value}</PathLabel>)
+                locationValues.map((value, index) => <PathLabel key={index}>{value}</PathLabel>)
             }
         </PathLabelsContainer>
     );
 };
-
-export default PathLabels;
