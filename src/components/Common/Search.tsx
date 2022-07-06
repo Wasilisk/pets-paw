@@ -1,5 +1,5 @@
 /*node-modules*/
-import React from 'react';
+import React, {Dispatch, SetStateAction} from 'react';
 import styled from 'styled-components';
 
 /*icons*/
@@ -18,10 +18,12 @@ const SearchContainer = styled.div`
   
   &:hover {
     border: 2px solid #FBE0DC;
+    padding: 10px 8px;
   }
   
   &:focus-within {
     border: 2px solid #FF868E;
+    padding: 0 10px;
   }
 
   &:hover input::-webkit-input-placeholder {
@@ -34,6 +36,9 @@ const SearchContainer = styled.div`
     padding-left: 10px;
     border: none;
     outline: none;
+    font-size: 20px;
+    line-height: 30px;
+    color: #1D1D1D;
 
     &::-webkit-input-placeholder {
       font-size: 20px;
@@ -52,14 +57,32 @@ const SearchContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 `;
 
-const Search = () => {
+type SearchProps = {
+    placeholder: string,
+    value: string,
+    changeHandler: Dispatch<SetStateAction<string>>;
+    onSubmit: () => void;
+}
+
+const Search = ({placeholder, value, changeHandler, onSubmit}: SearchProps) => {
+
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        changeHandler(e.target.value);
+    }
+
     return (
         <SearchContainer>
-            <input type="text" placeholder="Search for breeds by name"/>
-            <button>
+            <input
+                type="text"
+                placeholder={placeholder}
+                value={value}
+                onChange={onChange}
+            />
+            <button onClick={onSubmit}>
                 <SearchIcon/>
             </button>
         </SearchContainer>
