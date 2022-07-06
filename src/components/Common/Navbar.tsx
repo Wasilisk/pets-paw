@@ -1,16 +1,18 @@
 /*node-modules*/
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import {useNavigate} from "react-router-dom";
+
 
 /*components*/
-import {IconLink} from './IconLink';
 import Search from './Search';
+import IconLink from "./IconLink";
+
 
 /*icons*/
 import { ReactComponent as LikeIcon } from '../../assets/icons/like.svg';
 import { ReactComponent as FavouriteIcon } from '../../assets/icons/favourite.svg';
 import { ReactComponent as DislikeIcon } from '../../assets/icons/dislike.svg';
-
 
 const NavbarContainer = styled.div`
   width: 100%;
@@ -25,9 +27,25 @@ const NavbarContainer = styled.div`
 `
 
 const Navbar = () => {
+    const navigate = useNavigate();
+    const [searchValue, setSearchValue] = useState<string>("");
+
+    const onSubmit = () => {
+        if(searchValue.length > 0) {
+            navigate(`search?breed_name=${searchValue}`);
+        } else {
+            navigate("breeds");
+        }
+    }
+
     return (
         <NavbarContainer>
-            <Search/>
+            <Search
+                placeholder="Search for breeds by name"
+                value={searchValue}
+                changeHandler={setSearchValue}
+                onSubmit={onSubmit}
+            />
             <div className="links-group">
                 <IconLink to="/likes">
                     <LikeIcon/>
