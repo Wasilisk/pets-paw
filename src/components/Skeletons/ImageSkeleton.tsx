@@ -7,12 +7,16 @@ const shineAnimation = keyframes`
   }
 `;
 
-export const ImageSkeleton = styled.div`
-  height: 360px;
+type ImageSkeletonProps = {
+    height?: string
+}
+
+export const ImageSkeleton = styled.div<ImageSkeletonProps>`
+  height: ${({height}) => height ? height : "100%"};
   width: 100%;
   border-radius: 20px;
   background: #CCCCCC;
   background: linear-gradient(110deg, #ECECEC 8%, #F5F5F5F5 18%, #ECECEC 33%);
-  background-size: 200% 100%;
+  background-size: 200% 700%;
   animation: 1.5s ${shineAnimation} linear infinite;
 `
