@@ -2,7 +2,7 @@
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
-export const IconLink = styled(NavLink)`
+const IconLink = styled(NavLink)`
   width: 60px;
   height: 60px;
   background: #FFFFFF;
@@ -32,3 +32,5 @@ export const IconLink = styled(NavLink)`
     }
   }
 `;
+
+export default IconLink;
