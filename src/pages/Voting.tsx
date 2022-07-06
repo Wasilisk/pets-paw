@@ -1,6 +1,5 @@
 /*node-modules*/
 import React, {useEffect} from 'react';
-import styled from 'styled-components';
 
 /*store*/
 import {getVotingImage, selectVotingImage, setImageLoaded} from '../store/slices/voting-slice';
@@ -9,31 +8,12 @@ import {getVotingImage, selectVotingImage, setImageLoaded} from '../store/slices
 import {useAppSelector} from '../hooks/useAppSelector';
 import {useAppDispatch} from '../hooks/AppDispatch';
 
-/*icons*/
-import {ReactComponent as BackArrow} from '../assets/icons/back-arrow.svg';
-
 /*components*/
-import {IconButton} from '../components/Buttons/IconButton';
-import PathLabels from '../components/Common/PathLabels';
 import VotingButtonGroup from '../components/VotingButtonGroup';
 import {ImageSkeleton} from '../components/Skeletons/';
 import {ActionLogsSection, VotingSection} from '../components/Sections/';
-
-const PageContainer = styled.div`
-  width: 100%;
-  min-height: calc(100% - 70px);
-  height: auto;
-  margin-top: 10px;
-  background: #FFFFFF;
-  border-radius: 20px;
-  padding: 20px;
-  
-  .section-nav {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-`
+import PageNavigation from "../components/PageNavigation";
+import {PageContainer} from "../components/PageContainer";
 
 const VotingPage = () => {
     const dispatch = useAppDispatch();
@@ -48,14 +28,9 @@ const VotingPage = () => {
 
     return (
         <PageContainer>
-            <div className="section-nav">
-                <IconButton variant="primary">
-                    <BackArrow/>
-                </IconButton>
-                <PathLabels/>
-            </div>
+            <PageNavigation/>
             <VotingSection isLoading={isLoading}>
-                <ImageSkeleton/>
+                <ImageSkeleton height="360px"/>
                 {votingImage && <img src={votingImage.url} onLoad={onLoadHandler} alt="Cat"/>}
                 <VotingButtonGroup imageId={votingImage && votingImage!.id}/>
             </VotingSection>
