@@ -9,8 +9,6 @@ export const MenuButton = styled.button`
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  font-family: 'Jost', sans-serif;
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
