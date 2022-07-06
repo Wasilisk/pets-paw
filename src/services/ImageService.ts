@@ -11,4 +11,12 @@ export class ImageService {
     static async getRandomImage(): Promise<AxiosResponse<[Image]>> {
         return $api.get('images/search?limit=1');
     }
+
+    static async getImagesByBreedId(breedId: string): Promise<AxiosResponse<[Image]>> {
+        return $api.get(`images/search?breed_id=${breedId}&limit=5`);
+    }
+
+    static async getOneImageBreedById(breedId: string): Promise<AxiosResponse<[Image]>> {
+        return $api.get(`images/search?breed_id=${breedId}&limit=1`);
+    }
 }
