@@ -8,6 +8,10 @@ import Breeds from "../pages/Breeds";
 import BreedInfo from '../pages/BreedInfo';
 import BreedSearch from "../pages/BreedSearch";
 import HomeBanner from "../components/HomeBanner";
+import Likes from "../pages/Likes";
+import Dislikes from "../pages/Dislikes";
+import Favourites from "../pages/Favourites";
+import Gallery from "../pages/Gallery";
 
 const AppRouter = () => {
     return (
@@ -17,10 +21,10 @@ const AppRouter = () => {
             <Route path="breeds" element={<Breeds/>}/>
             <Route path="breeds/:breedId" element={<BreedInfo/>}/>
             <Route path="search" element={<BreedSearch/>}/>
-            <Route path="gallery" element={<h4>Gallery</h4>}/>
-            <Route path="likes" element={<h4>likes</h4>}/>
-            <Route path="favourites" element={<h4>favourites</h4>}/>
-            <Route path="dislikes" element={<h4>dislikes</h4>}/>
+            <Route path="gallery" element={<Gallery/>}/>
+            <Route path="likes" element={<Likes/>}/>
+            <Route path="favourites" element={<Favourites/>}/>
+            <Route path="dislikes" element={<Dislikes/>}/>
             <Route
                 path="*"
                 element={<Navigate to="/" replace />}
