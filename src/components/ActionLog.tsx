@@ -73,12 +73,14 @@ const ActionLog = ({actionInfo}: ActionLogProps) => {
         type,
         category
     } = actionInfo
+
+    const actionTime = new Date(created_at);
+
     return (
         <ActionLogContainer>
             <p className="action-time">
-                {
-                    created_at.match(/\d\d:\d\d/)
-                }
+                {actionTime.getHours()}:
+                {actionTime.getMinutes()}
             </p>
             <p className="action-description">
                 Image ID: <strong>{image_id}</strong> was
