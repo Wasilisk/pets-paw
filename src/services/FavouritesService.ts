@@ -19,7 +19,7 @@ export class FavouritesService {
         return $api.delete(`favourites/${favourite_id}`);
     }
 
-    static async getUserFavourites(): Promise<AxiosResponse<[Favourite]>> {
-        return $api.get('favourites');
+    static async getUserFavourites(userId: string): Promise<AxiosResponse<[Favourite]>> {
+        return $api.get(`favourites?sub_id=${userId}`);
     }
 }
