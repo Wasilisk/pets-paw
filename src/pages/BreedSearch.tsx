@@ -1,24 +1,23 @@
 /*node-modules*/
 import React, {useEffect} from 'react';
-import {useSearchParams} from "react-router-dom";
+import {useSearchParams} from 'react-router-dom';
 
 /*store*/
-import {selectBreedsIsLoading} from "../store/slices/breeds-slice";
-import {searchBreedByName, selectAllBreeds} from "../store/slices/breeds-slice";
+import {selectBreedsIsLoading} from '../store/slices/breeds-slice';
+import {searchBreedByName, selectAllBreeds} from '../store/slices/breeds-slice';
 
 /*hooks*/
-import {useAppDispatch} from "../hooks/AppDispatch";
-import {useAppSelector} from "../hooks/useAppSelector";
+import {useAppDispatch, useAppSelector} from '../hooks';
 
 /*components*/
-import {ImageGridSkeleton} from "../components/Skeletons";
-import {PageContainer} from "../components/PageContainer";
-import PageNavigation from "../components/PageNavigation";
-import {EmptyLabel, SearchResultLabel} from "../components/Common/Labels";
-import {BreedGridItem, ImageGrid} from "../components/Common/Grid";
+import {ImageGridSkeleton} from '../components/Skeletons';
+import {PageSection} from '../components/Sections';
+import {PageNavigation} from '../components/Common';
+import {EmptyLabel, SearchResultLabel} from '../components/Labels';
+import {BreedGridItem, ImageGrid} from '../components/Common/Grid';
 
 /*models*/
-import {Breed} from "../models/common/breed";
+import {Breed} from '../models/common';
 
 const BreedSearch = () => {
     const dispatch = useAppDispatch();
@@ -32,12 +31,12 @@ const BreedSearch = () => {
     }, [breedName])
 
     return (
-        <PageContainer>
+        <PageSection>
             <PageNavigation/>
             <SearchResultLabel breedName={breedName}/>
             {
                 isBreedsLoading
-                    ? <ImageGridSkeleton/>
+                    ? <ImageGridSkeleton limit={10}/>
                     : breedsList && breedsList.length > 0
                         ? <ImageGrid> {
                             breedsList.map((breed: Breed) => <BreedGridItem breedInfo={breed}/>)
@@ -46,7 +45,7 @@ const BreedSearch = () => {
                         : <EmptyLabel>No item found</EmptyLabel>
             }
 
-        </PageContainer>
+        </PageSection>
     );
 }
 export default BreedSearch;

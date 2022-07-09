@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 /*models*/
-import {Breed} from '../../models/common/breed';
+import {Breed} from '../../models/common';
 
 const BreedInfoContainer = styled.div`
   width: 100%;

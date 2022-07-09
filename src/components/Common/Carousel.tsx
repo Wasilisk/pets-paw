@@ -1,10 +1,10 @@
 /*node-modules*/
 import React, {useEffect, useState} from 'react';
-import styled from "styled-components";
-import {useSwipeable} from "react-swipeable";
+import styled from 'styled-components';
+import {useSwipeable} from 'react-swipeable';
 
 /*components*/
-import {ImageSkeleton} from "../Skeletons";
+import {ImageSkeleton} from '../Skeletons';
 
 type CarouselProps = {
     imagesUrl: string[],
@@ -67,7 +67,7 @@ const CarouselContainer = styled.div`
   }
 `
 
-const Carousel = ({imagesUrl, isLoading}: CarouselProps) => {
+export const Carousel = ({imagesUrl, isLoading}: CarouselProps) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [paused, setPaused] = useState(false);
 
@@ -130,5 +130,3 @@ const Carousel = ({imagesUrl, isLoading}: CarouselProps) => {
         </CarouselContainer>
     );
 };
-
-export default Carousel;

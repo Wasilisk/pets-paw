@@ -6,10 +6,10 @@ import styled from 'styled-components';
 import {selectActionLogs} from '../../store/slices/logs-slice';
 
 /*hooks*/
-import {useAppSelector} from '../../hooks/useAppSelector';
+import {useAppSelector} from '../../hooks';
 
 /*components*/
-import ActionLog from '../ActionLog';
+import {ActionLog} from '../Common';
 
 const ActionLogsContainer = styled.div`
   max-height: 280px;

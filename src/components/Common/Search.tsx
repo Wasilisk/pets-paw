@@ -68,7 +68,7 @@ type SearchProps = {
     onSubmit: () => void;
 }
 
-const Search = ({placeholder, value, changeHandler, onSubmit}: SearchProps) => {
+export const Search = ({placeholder, value, changeHandler, onSubmit}: SearchProps) => {
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         changeHandler(e.target.value);
@@ -88,5 +88,3 @@ const Search = ({placeholder, value, changeHandler, onSubmit}: SearchProps) => {
         </SearchContainer>
     );
 };
-
-export default Search;

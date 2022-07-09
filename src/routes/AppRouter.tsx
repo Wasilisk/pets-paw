@@ -3,15 +3,15 @@ import React from 'react';
 import {Navigate, Route, Routes} from 'react-router-dom';
 
 /*components*/
+import {HomeBanner} from '../components/Common/';
 import VotingPage from '../pages/Voting';
-import Breeds from "../pages/Breeds";
+import Breeds from '../pages/Breeds';
 import BreedInfo from '../pages/BreedInfo';
-import BreedSearch from "../pages/BreedSearch";
-import HomeBanner from "../components/HomeBanner";
-import Likes from "../pages/Likes";
-import Dislikes from "../pages/Dislikes";
-import Favourites from "../pages/Favourites";
-import Gallery from "../pages/Gallery";
+import BreedSearch from '../pages/BreedSearch';
+import Likes from '../pages/Likes';
+import Dislikes from '../pages/Dislikes';
+import Favourites from '../pages/Favourites';
+import Gallery from '../pages/Gallery';
 
 const AppRouter = () => {
     return (

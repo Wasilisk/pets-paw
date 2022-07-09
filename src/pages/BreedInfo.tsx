@@ -3,15 +3,13 @@ import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 
 /*hooks*/
-import {useAppSelector} from '../hooks/useAppSelector';
-import {useAppDispatch} from '../hooks/AppDispatch';
+import {useAppDispatch, useAppSelector} from "../hooks";
 
 /*components*/
-import Carousel from "../components/Common/Carousel";
-import {PageContainer} from "../components/PageContainer";
-import PageNavigation from "../components/PageNavigation";
-import {BreedInfoSection} from "../components/Sections";
-import {EmptyLabel} from "../components/Common/Labels";
+import {Carousel} from "../components/Common";
+import {BreedInfoSection, PageSection} from "../components/Sections";
+import {EmptyLabel} from "../components/Labels";
+import {PageNavigation} from "../components/Common";
 
 /*store*/
 import {
@@ -35,7 +33,7 @@ const BreedInfo = () => {
     }, [])
 
     return (
-        <PageContainer>
+        <PageSection>
             <PageNavigation/>
             {
                 breedInfo
@@ -45,7 +43,7 @@ const BreedInfo = () => {
                     </>
                     : <EmptyLabel>This breed of cats has not been found</EmptyLabel>
             }
-        </PageContainer>
+        </PageSection>
     );
 };
 

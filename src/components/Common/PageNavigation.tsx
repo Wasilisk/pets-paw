@@ -1,13 +1,10 @@
 /*node-modules*/
 import React, {ReactNode} from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 /*components*/
-import {IconButton} from "./Buttons/IconButton";
-import {PathLabels} from "./Common/Labels";
-
-/*icons*/
-import {ReactComponent as BackArrow} from "../assets/icons/back-arrow.svg";
+import {PathLabels} from '../Labels';
+import {HistoryBackButton} from '../Buttons';
 
 const PageNavigationContainer = styled.div`
   display: flex;
@@ -23,16 +20,12 @@ type PageNavigationProps = {
     children?: ReactNode
 }
 
-const PageNavigation = ({children}: PageNavigationProps) => {
+export const PageNavigation = ({children}: PageNavigationProps) => {
     return (
         <PageNavigationContainer>
-            <IconButton variant="primary">
-                <BackArrow/>
-            </IconButton>
+            <HistoryBackButton/>
             <PathLabels/>
             {children}
         </PageNavigationContainer>
     );
 };
-
-export default PageNavigation;

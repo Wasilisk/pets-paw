@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 /*image*/
-import MainBanner from '../assets/images/main-banner.png'
+import MainBanner from '../../assets/images/main-banner.png'
 
 const HomeBannerContainer = styled.div`
   width: 680px;
@@ -14,14 +14,13 @@ const HomeBannerContainer = styled.div`
   background: #FBE0DC;
   border-radius: 20px;
   margin-right: 18px;
+  margin-top: 10px;
 `
 
-const HomeBanner = () => {
+export const HomeBanner = () => {
     return (
         <HomeBannerContainer>
             <img src={MainBanner} alt="Main banner"/>
         </HomeBannerContainer>
     );
 };
-
-export default HomeBanner;

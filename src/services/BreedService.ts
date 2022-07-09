@@ -5,7 +5,7 @@ import {AxiosResponse} from 'axios';
 import $api from '../http';
 
 /*models*/
-import {Breed} from '../models/common/breed';
+import {Breed} from '../models/common';
 
 export class BreedService {
     static async getAllBreeds(): Promise<AxiosResponse<[Breed]>> {

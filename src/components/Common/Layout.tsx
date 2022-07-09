@@ -6,11 +6,11 @@ import {useLocation} from "react-router-dom";
 
 
 /*components*/
-import {MainSection} from './Sections';
-import Navbar from './Common/Navbar';
+import {MainSection} from '../Sections';
+import {Navbar} from './index';
 
 /*router*/
-import AppRouter from '../routes/AppRouter';
+import AppRouter from '../../routes/AppRouter';
 
 const LayoutContainer = styled.div`
   height: 100%;
@@ -25,7 +25,7 @@ const LayoutContainer = styled.div`
   }
 `
 
-const Layout = () => {
+export const Layout = () => {
     const location = useLocation()
 
     const getData = async () => {
@@ -51,5 +51,3 @@ const Layout = () => {
         </LayoutContainer>
     );
 };
-
-export default Layout;

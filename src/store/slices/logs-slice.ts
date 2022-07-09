@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {RootState} from '../index';
 
 /*models*/
-import {Action} from '../../models/common/action';
+import {Action} from '../../models/common';
 
 interface LogState {
     userActions: Action[]
@@ -29,7 +29,7 @@ export const logsSlice = createSlice({
                     payload: {
                         ...payload,
                         id: uuidv4(),
-                        created_at: new Date(Date.now()).toISOString()
+                        created_at: new Date(Date.now()).toUTCString()
                     },
                 }
             }

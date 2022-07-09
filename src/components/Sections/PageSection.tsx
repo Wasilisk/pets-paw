@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const PageContainer = styled.div`
+export const PageSection = styled.div`
   width: 100%;
   min-height: calc(100% - 70px);
   height: auto;
@@ -8,6 +8,8 @@ export const PageContainer = styled.div`
   background: #FFFFFF;
   border-radius: 20px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 
   & > *:not(:last-child) {
     margin-bottom: 20px;

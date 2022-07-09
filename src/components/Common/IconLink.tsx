@@ -2,7 +2,7 @@
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
-const IconLink = styled(NavLink)`
+export const IconLink = styled(NavLink)`
   width: 60px;
   height: 60px;
   background: #FFFFFF;
@@ -23,14 +23,4 @@ const IconLink = styled(NavLink)`
       fill: #FFFFFF;
     }
   }
-  
-  .active {
-    background: #FF868E;
-
-    path {
-      fill: #FFFFFF;
-    }
-  }
 `;
-
-export default IconLink;

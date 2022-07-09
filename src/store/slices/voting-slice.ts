@@ -5,7 +5,7 @@ import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '../index';
 
 /*models*/
-import {Image} from '../../models/common/image';
+import {Image} from '../../models/common';
 
 /*services*/
 import {ImageService} from '../../services/ImageService';

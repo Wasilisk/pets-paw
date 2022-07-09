@@ -12,14 +12,14 @@ import GlobalStyles from './global-styles';
 import store from './store';
 
 /*components*/
-import Layout from './components/Layout';
+import {Layout} from './components/Common';
 
 const persistedStore= persistStore(store);
 
 
 const App = () => {
     return (
-        <React.StrictMode>
+        /*<React.StrictMode>*/
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistedStore}>
             <BrowserRouter>
@@ -28,7 +28,7 @@ const App = () => {
             </BrowserRouter>
             </PersistGate>
         </Provider>
-        </React.StrictMode>
+        /*</React.StrictMode>*/
     );
 }
 

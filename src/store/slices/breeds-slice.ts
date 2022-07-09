@@ -5,12 +5,13 @@ import {createAsyncThunk, createSelector, createSlice, PayloadAction} from '@red
 import {RootState} from '../index';
 
 /*models*/
-import {Image} from '../../models/common/image';
+import {Image} from '../../models/common';
+import {Breed} from "../../models/common";
+import {BreedFilters} from "../../models/filters";
+import {OptionType} from "../../components/Common/Select";
 
 /*services*/
-import {Breed} from "../../models/common/breed";
 import {BreedService} from "../../services/BreedService";
-import {OptionType} from "../../components/Common/Select";
 import {ImageService} from "../../services/ImageService";
 
 interface VotingState {
@@ -90,10 +91,10 @@ export const breedsSlice = createSlice({
 
 export const selectAllBreeds = (state: RootState) => state.breeds.breedsList;
 export const selectBreedsIsLoading = (state: RootState) => state.breeds.isLoading;
-export const selectAllBreedsName = (state: RootState) => state.breeds.breedsList?.map((breed: Breed): OptionType => {
+export const selectAllBreedsId = (state: RootState) => state.breeds.breedsList?.map((breed: Breed): OptionType => {
     return ({
         label: breed.name,
-        value: breed.name
+        value: breed.id
     })
 });
 export const selectBreedById = (state: RootState, breedId: string) => state.breeds.breedsList?.filter((breed: Breed) => breed.id === breedId)[0];
@@ -101,17 +102,15 @@ export const selectImagesByBreed = (state: RootState) => state.breeds.currentBre
 export const selectBreedsWithFilters = createSelector(
     [
         state => state.breeds.breedsList,
-        (state, filters: {breedName: string | undefined, limit: number, sortType: "desc" | "asc"}) =>  filters
+        (state, filters: BreedFilters) =>  filters
     ],
     (breedsList, filters) => {
         let breedsListOutput = breedsList;
-        if(filters.breedName) {
-            breedsListOutput = breedsListOutput.filter((breed: Breed) => breed.name === filters.breedName);
-        }
+        let offset = (filters.page - 1) * filters.limit;
         if(filters.sortType === "asc") {
             breedsListOutput = [...breedsListOutput].sort((a: Breed, b: Breed) => (a.name > b.name ? -1 : 1))
         }
-        return breedsListOutput?.slice(0, filters.limit);
+        return breedsListOutput?.slice(offset, offset + filters.limit);
     }
 );
 

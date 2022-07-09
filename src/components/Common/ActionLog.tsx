@@ -3,12 +3,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 /*icons*/
-import {ReactComponent as LikeIcon} from '../assets/icons/like.svg';
-import {ReactComponent as FavouriteIcon} from '../assets/icons/favourite.svg';
-import {ReactComponent as DislikeIcon} from '../assets/icons/dislike.svg';
+import {ReactComponent as LikeIcon} from '../../assets/icons/like.svg';
+import {ReactComponent as FavouriteIcon} from '../../assets/icons/favourite.svg';
+import {ReactComponent as DislikeIcon} from '../../assets/icons/dislike.svg';
 
 /*models*/
-import {Action} from "../models/common/action";
+import {Action} from "../../models/common";
 
 const ActionLogContainer = styled.div`
   width: 100%;
@@ -66,7 +66,7 @@ type ActionLogProps = {
     actionInfo: Action;
 }
 
-const ActionLog = ({actionInfo}: ActionLogProps) => {
+export const ActionLog = ({actionInfo}: ActionLogProps) => {
     const {
         created_at,
         image_id,
@@ -104,5 +104,3 @@ const ActionLog = ({actionInfo}: ActionLogProps) => {
         </ActionLogContainer>
     );
 };
-
-export default ActionLog;

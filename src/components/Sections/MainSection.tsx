@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 /*components*/
-import MainMenu from '../MainMenu';
+import {MainMenu} from '../Common';
 
 /*icons*/
 import {ReactComponent as Logo} from '../../assets/logo/Logo.svg'

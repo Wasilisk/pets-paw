@@ -5,15 +5,13 @@ import React, {useEffect} from 'react';
 import {getVotingImage, selectVotingImage, setImageLoaded} from '../store/slices/voting-slice';
 
 /*hooks*/
-import {useAppSelector} from '../hooks/useAppSelector';
-import {useAppDispatch} from '../hooks/AppDispatch';
+import {useAppSelector, useAppDispatch} from '../hooks';
 
 /*components*/
-import VotingButtonGroup from '../components/VotingButtonGroup';
 import {ImageSkeleton} from '../components/Skeletons/';
-import {ActionLogsSection, VotingSection} from '../components/Sections/';
-import PageNavigation from "../components/PageNavigation";
-import {PageContainer} from "../components/PageContainer";
+import {ActionLogsSection, PageSection, VotingSection} from '../components/Sections/';
+import {PageNavigation} from '../components/Common';
+import {VotingButtonGroup} from '../components/Buttons/ButtonsGroups';
 
 const VotingPage = () => {
     const dispatch = useAppDispatch();
@@ -27,7 +25,7 @@ const VotingPage = () => {
     const onLoadHandler = () => dispatch(setImageLoaded());
 
     return (
-        <PageContainer>
+        <PageSection>
             <PageNavigation/>
             <VotingSection isLoading={isLoading}>
                 <ImageSkeleton height="360px"/>
@@ -35,7 +33,7 @@ const VotingPage = () => {
                 <VotingButtonGroup imageId={votingImage && votingImage!.id}/>
             </VotingSection>
             <ActionLogsSection/>
-        </PageContainer>
+        </PageSection>
     );
 };
 

@@ -3,10 +3,10 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 
 /*services*/
-import {VotingService} from '../../../services/VotingService';
+import {FavouritesService} from '../../../services/FavouritesService';
 
 /*hooks*/
-import {useAppDispatch} from '../../../hooks/AppDispatch';
+import {useAppDispatch} from '../../../hooks';
 
 /*store*/
 import {addActionLog} from '../../../store/slices/logs-slice';
@@ -46,9 +46,12 @@ const VotingFavouriteButtonElement = styled(VotingButton)`
   }
 `
 
+type VotingFavouriteButtonProps = VotingButtonProps & {
+    isFavourite: boolean,
+    setIsFavourite: (arg: boolean) => void
+}
 
-export const VotingFavouriteButton = ({isClicked, imageId, setIsClicked}: VotingButtonProps) => {
-    const [isFavourite, setIsFavourite] = useState<boolean>(false);
+export const VotingFavouriteButton = ({isClicked, imageId, setIsClicked, isFavourite, setIsFavourite}: VotingFavouriteButtonProps) => {
     const [favouriteId, setFavouriteId] = useState<number | null>(null);
 
     const dispatch = useAppDispatch();
@@ -61,7 +64,7 @@ export const VotingFavouriteButton = ({isClicked, imageId, setIsClicked}: Voting
         }
 
         setIsClicked(true);
-        const newFavourite = await VotingService.saveAsFavourite({
+        const newFavourite = await FavouritesService.saveAsFavourite({
             image_id: imageId!,
             sub_id: localStorage.getItem('sub_id')!,
         })
@@ -79,7 +82,7 @@ export const VotingFavouriteButton = ({isClicked, imageId, setIsClicked}: Voting
         }
 
         setIsClicked(true);
-        await VotingService.deleteFromFavourite(favouriteId!)
+        await FavouritesService.deleteFromFavourite(favouriteId!)
         setIsFavourite(false);
         dispatch(addActionLog(removeFromFavouriteAction));
         setIsClicked(false);

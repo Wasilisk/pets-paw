@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type MenuCardProps = {
-    readonly backgroundColor: string
+    backgroundColor: string
 }
 
 export const MenuCard = styled.div<MenuCardProps>`
