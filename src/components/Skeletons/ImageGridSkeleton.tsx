@@ -2,14 +2,18 @@
 import React from 'react';
 
 /*components*/
-import {ImageSkeleton} from "./ImageSkeleton";
+import {ImageSkeleton} from './ImageSkeleton';
 import {ImageGrid} from "../Common/Grid";
 
-export const ImageGridSkeleton = () => {
+type ImageGridSkeletonProps = {
+    limit: number
+}
+
+export const ImageGridSkeleton = ({limit}: ImageGridSkeletonProps) => {
     return (
         <ImageGrid>
             {
-                Array.from({length: 20}, ((_, index) => <ImageSkeleton key={index}/>))
+                Array.from({length: limit}, ((_, index) => <ImageSkeleton key={index}/>))
             }
         </ImageGrid>
     );
