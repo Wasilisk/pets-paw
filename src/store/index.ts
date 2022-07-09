@@ -7,11 +7,15 @@ import storage from 'redux-persist/lib/storage';
 import votingReducer from './slices/voting-slice';
 import logsReducer from './slices/logs-slice';
 import breedsReducer from './slices/breeds-slice';
+import categoriesReducer from './slices/categories-slice';
+import galleryReducer from './slices/gallery-slice';
 
 const reducers = combineReducers({
     voting: votingReducer,
     action_logs: logsReducer,
-    breeds: breedsReducer
+    breeds: breedsReducer,
+    categories: categoriesReducer,
+    gallery: galleryReducer
 });
 
 const persistConfig = {
