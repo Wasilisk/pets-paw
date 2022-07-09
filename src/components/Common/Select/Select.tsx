@@ -1,10 +1,12 @@
 /*node-modules*/
-import styled from "styled-components";
-import {useState} from "react";
+import styled from 'styled-components';
+import {useState} from 'react';
+
+/*components*/
+import {SelectItem} from './SelectItem';
 
 /*icons*/
 import SelectArrow from '../../../assets/icons/down-arrow.svg'
-import {SelectItem} from "./SelectItem";
 
 export type OptionType = {
     label: string,
@@ -12,23 +14,25 @@ export type OptionType = {
 }
 
 type SelectProps = {
-    value: OptionType | null,
-    width: string,
+    value: string | number | null,
+    width?: string,
     defaultValue?: string,
     changeValue: any,
-    options: OptionType[]
+    options: OptionType[],
+    variant?: "primary" | "secondary"
 }
 type SelectElementProps = {
-    width: string,
-    isOpen: boolean
+    width?: string,
+    isOpen: boolean,
+    variant: "primary" | "secondary"
 }
 
 const SelectElement = styled.div<SelectElementProps>`
   height: 40px;
-  width: ${({width}) => width};
+  width: ${({width}) => width ? width : "100%"};
   border-radius: 10px;
   border: none;
-  background-color: #F8F8F7;
+  background-color: ${({variant}) => variant === "primary" ? "#F8F8F7" : "#FFFFFF"};
   border: ${({isOpen}) => isOpen ? "2px solid #FBE0DC" : "none"};
   background-image: url(${SelectArrow});
   background-size: 13px 13px;
@@ -40,11 +44,12 @@ const SelectElement = styled.div<SelectElementProps>`
   box-sizing: border-box;
   font-size: 16px;
   line-height: 24px;
-  color: #8C8C8C;
+  color: ${({variant}) => variant === "primary" ? "#8C8C8C" : "#1D1D1D"};
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding-left: ${({isOpen}) => isOpen ? "8px" : "10px"};
+  cursor: pointer;
 
   &:hover {
     border: 2px solid #FBE0DC;
@@ -54,12 +59,12 @@ const SelectElement = styled.div<SelectElementProps>`
 `;
 
 type DropdownProps = {
-    width: string,
+    width?: string,
     isOpen: boolean
 }
 
 const Dropdown = styled.div<DropdownProps>`
-  width: ${({width}) => width};
+  width: ${({width}) => width ? width : "100%"};
   max-height: 380px;
   position: absolute;
   left: 0;
@@ -77,7 +82,7 @@ const Dropdown = styled.div<DropdownProps>`
   }
 `
 
-export const Select = ({width, defaultValue, options, changeValue, value}: SelectProps) => {
+export const Select = ({width, defaultValue, options, changeValue, value, variant = "primary"}: SelectProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const onClickHandler = () => {
@@ -85,8 +90,8 @@ export const Select = ({width, defaultValue, options, changeValue, value}: Selec
     }
 
     return (
-        <SelectElement width={width} isOpen={isOpen} onClick={onClickHandler}>
-            <p>{value ? value.label : defaultValue}</p>
+        <SelectElement variant={variant} width={width} isOpen={isOpen} onClick={onClickHandler}>
+            <p>{value ? options.find((option) => option.value === value)?.label : defaultValue}</p>
             <Dropdown width={width} isOpen={isOpen}>
                 {
                     defaultValue
@@ -97,7 +102,7 @@ export const Select = ({width, defaultValue, options, changeValue, value}: Selec
                     options ?
                         options.map((option, index) => <SelectItem
                                 key={index}
-                                onClick={() => changeValue(option)}
+                                onClick={() => changeValue(option.value)}
                             >
                                 {option.label}
                             </SelectItem>
