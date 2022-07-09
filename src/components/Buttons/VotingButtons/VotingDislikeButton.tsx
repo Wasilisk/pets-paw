@@ -10,7 +10,7 @@ import {getVotingImage} from '../../../store/slices/voting-slice';
 import {VotingService} from '../../../services/VotingService';
 
 /*hooks*/
-import {useAppDispatch} from '../../../hooks/AppDispatch';
+import {useAppDispatch} from '../../../hooks';
 
 /*components*/
 import {VotingAction, VotingButton, VotingButtonProps} from './VotingButton';
@@ -39,7 +39,9 @@ const VotingDislikeButtonElement = styled(VotingButton)`
   }
 `;
 
-export const VotingDislikeButton = ({isClicked, imageId, setIsClicked}: VotingButtonProps) => {
+type VotingDislikeButtonProps = VotingButtonProps & {setIsFavourite: (arg: boolean) => void}
+
+export const VotingDislikeButton = ({isClicked, imageId, setIsClicked, setIsFavourite}: VotingDislikeButtonProps) => {
     const dispatch = useAppDispatch();
 
     const addToLikes = async () => {
@@ -57,6 +59,7 @@ export const VotingDislikeButton = ({isClicked, imageId, setIsClicked}: VotingBu
         })
         dispatch(addActionLog(likeAction));
         dispatch(getVotingImage());
+        setIsFavourite(false);
         setIsClicked(false);
     }
 
