@@ -1,10 +1,10 @@
 /*node-modules*/
 import React from 'react';
 import styled from 'styled-components';
-import {useNavigate} from 'react-router-dom';
 
 type IconButtonElementProps = {
     variant: "primary" | "secondary",
+    onClick: () => void;
 }
 
 type IconButtonProps = IconButtonElementProps & {children?: React.ReactNode};
@@ -30,12 +30,9 @@ const IconButtonElement = styled.button<IconButtonElementProps>`
   }
 `
 
-export const IconButton = ({variant, children}: IconButtonProps) => {
-    const navigate = useNavigate();
-    const historyBack = () => navigate(-1);
-
+export const IconButton = ({variant, children, onClick}: IconButtonProps) => {
     return (
-        <IconButtonElement variant={variant} onClick={historyBack}>
+        <IconButtonElement variant={variant} onClick={onClick}>
             {children}
         </IconButtonElement>
     );
