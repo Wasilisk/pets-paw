@@ -5,9 +5,8 @@ import {AxiosResponse} from 'axios';
 import $api from '../http';
 
 /*models*/
-import {CreateVoteRequest} from '../models/request/create-vote-request';
-import {AddToFavouriteRequest} from '../models/request/add-to-favourite-request';
-import {AddToFavouriteResponse} from '../models/response/add-to-favourite-response';
+import {CreateVoteRequest} from '../models/request';
+import {Vote} from '../models/common';
 
 
 export class VotingService {
@@ -15,11 +14,7 @@ export class VotingService {
         return $api.post('votes', data);
     }
 
-    static async saveAsFavourite(data: AddToFavouriteRequest): Promise<AxiosResponse<AddToFavouriteResponse>> {
-        return $api.post('favourites', data);
-    }
-
-    static async deleteFromFavourite(favourite_id: number): Promise<AxiosResponse<void>> {
-        return $api.delete(`favourites/${favourite_id}`);
+    static async getUserVotes(subId: string): Promise<AxiosResponse<[Vote]>> {
+        return $api.get(`votes?sub_id=${subId}`);
     }
 }
