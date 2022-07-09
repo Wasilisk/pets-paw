@@ -1,13 +1,12 @@
 /*node-modules*/
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {useNavigate} from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 
 
 /*components*/
-import Search from './Search';
-import IconLink from "./IconLink";
-
+import {Search} from './Search';
+import {IconLink} from './IconLink';
 
 /*icons*/
 import { ReactComponent as LikeIcon } from '../../assets/icons/like.svg';
@@ -23,10 +22,18 @@ const NavbarContainer = styled.div`
     width: 200px;
     display: flex;
     justify-content: space-between;
+    
+    .active {
+      background: #FF868E;
+
+      path {
+        fill: #FFFFFF;
+      }
+    }
   }
 `
 
-const Navbar = () => {
+export const Navbar = () => {
     const navigate = useNavigate();
     const [searchValue, setSearchValue] = useState<string>("");
 
@@ -60,5 +67,3 @@ const Navbar = () => {
         </NavbarContainer>
     );
 };
-
-export default Navbar;
