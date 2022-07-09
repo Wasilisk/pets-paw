@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 
 /*components*/
-import {VotingDislikeButton, VotingFavouriteButton, VotingLikeButton} from './Buttons/VotingButtons';
+import {VotingDislikeButton, VotingFavouriteButton, VotingLikeButton} from '../VotingButtons';
 
 const VotingButtonGroupContainer= styled.div`
   height: 80px;
@@ -23,8 +23,9 @@ type VotingButtonGroupProps = {
     imageId: string | null,
 }
 
-const VotingButtonGroup = ({imageId}: VotingButtonGroupProps) => {
+export const VotingButtonGroup = ({imageId}: VotingButtonGroupProps) => {
     const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);
+    const [isFavourite, setIsFavourite] = useState<boolean>(false);
 
     return (
         <VotingButtonGroupContainer>
@@ -32,19 +33,21 @@ const VotingButtonGroup = ({imageId}: VotingButtonGroupProps) => {
                 imageId={imageId}
                 isClicked={isButtonClicked}
                 setIsClicked={setIsButtonClicked}
+                setIsFavourite={setIsFavourite}
             />
             <VotingFavouriteButton
                 imageId={imageId}
                 isClicked={isButtonClicked}
                 setIsClicked={setIsButtonClicked}
+                isFavourite={isFavourite}
+                setIsFavourite={setIsFavourite}
             />
             <VotingDislikeButton
                 imageId={imageId}
                 isClicked={isButtonClicked}
                 setIsClicked={setIsButtonClicked}
+                setIsFavourite={setIsFavourite}
             />
         </VotingButtonGroupContainer>
     );
 };
-
-export default VotingButtonGroup;
