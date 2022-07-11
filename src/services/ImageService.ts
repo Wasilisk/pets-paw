@@ -7,6 +7,7 @@ import $api from '../http';
 /*models*/
 import {Image} from '../models/common';
 import {GalleryFilters} from '../models/filters';
+import {ImageUploadResponse} from '../models/response';
 
 export class ImageService {
     static async getImageById(imageId: string): Promise<AxiosResponse<Image>> {
@@ -33,6 +34,14 @@ export class ImageService {
                 limit,
                 mime_types: imageType,
                 breed_id: breedId
+            }
+        });
+    }
+
+    static uploadImage(data: FormData): Promise<AxiosResponse<ImageUploadResponse>> {
+        return $api.post('images/upload', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
             }
         });
     }
