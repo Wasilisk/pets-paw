@@ -1,6 +1,7 @@
 /*node-modules*/
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
 
 /*icons*/
 import {ReactComponent as LikeIcon} from '../../assets/icons/like.svg';
@@ -74,13 +75,12 @@ export const ActionLog = ({actionInfo}: ActionLogProps) => {
         category
     } = actionInfo
 
-    const actionTime = new Date(created_at);
+    const actionTime = moment(created_at).format("HH:MM");
 
     return (
         <ActionLogContainer>
             <p className="action-time">
-                {actionTime.getHours()}:
-                {actionTime.getMinutes()}
+                {actionTime}
             </p>
             <p className="action-description">
                 Image ID: <strong>{image_id}</strong> was
