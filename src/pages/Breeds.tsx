@@ -24,6 +24,7 @@ import {PaginationButtonGroup} from '../components/Buttons/ButtonsGroups';
 
 /*models*/
 import {Breed} from '../models/common';
+import {BreedFilters, BreedsSortType} from '../models/filters';
 
 /*icons*/
 import {ReactComponent as AscSortIcon} from '../assets/icons/asc-sort.svg';
@@ -33,26 +34,30 @@ const Breeds = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const isBreedsLoading = useAppSelector(selectBreedsIsLoading);
-    const [pageLimit, setPageLimit] = useState<number>(10);
-    const [sortType, setSortType] = useState<"desc" | "asc">("desc")
-    const [pageCount, setPageCount] = useState<number>(1)
-    const breedsOptions = useAppSelector(selectAllBreedsId);
-    const breedsList = useAppSelector(selectBreedsWithFilters, {
-        limit: pageLimit,
-        page: pageCount,
-        sortType
+    const [filters, setFilters] = useState<BreedFilters>({
+        page: 1,
+        sortType: "desc",
+        limit: 10,
     })
+    const breedsOptions = useAppSelector(selectAllBreedsId);
+    const breedsList = useAppSelector(selectBreedsWithFilters, filters)
 
-    const isNextPageDisable: boolean = breedsList.length < pageLimit;
+    const isNextPageDisable: boolean = breedsList.length < filters.limit;
 
     const setLimit = (value: number) => {
-        setPageCount(1);
-        setPageLimit(value);
+        setFilters({
+            ...filters,
+            page: 1,
+            limit: value
+        })
     };
-
+    const setPage = (page: number) => setFilters({...filters, page})
+    const setSortType = (sortType: BreedsSortType) => setFilters({...filters, sortType})
     const changeBreedName = (breedId: string) => {
         navigate(breedId);
     }
+
+    const isSortButtonActive = filters.sortType === "desc";
 
     const options: OptionType[] = [
         {label: "Limit: 5", value: 5},
@@ -71,13 +76,13 @@ const Breeds = () => {
             <PageNavigation>
                 <Select width="226px" value={null} changeValue={changeBreedName} defaultValue="All breeds"
                         options={breedsOptions!}/>
-                <Select width="100px" value={pageLimit} changeValue={setLimit} options={options}/>
-                <SortButton isActive={sortType === "asc"} onClick={() => {
+                <Select width="100px" value={filters.limit} changeValue={setLimit} options={options}/>
+                <SortButton isActive={!isSortButtonActive} onClick={() => {
                     setSortType("asc")
                 }}>
                     <AscSortIcon/>
                 </SortButton>
-                <SortButton isActive={sortType === "desc"} onClick={() => {
+                <SortButton isActive={isSortButtonActive} onClick={() => {
                     setSortType("desc")
                 }}>
                     <DescSortIcon/>
@@ -85,14 +90,14 @@ const Breeds = () => {
             </PageNavigation>
             {
                 isBreedsLoading
-                    ? <ImageGridSkeleton limit={pageLimit}/>
+                    ? <ImageGridSkeleton limit={filters.limit}/>
                     :  <ImageGrid>
                         {breedsList?.map((breed: Breed) => <BreedGridItem key={breed.id} breedInfo={breed}/>)}
                     </ImageGrid>
             }
             <PaginationButtonGroup
-                page={pageCount}
-                setPage={setPageCount}
+                page={filters.page}
+                setPage={setPage}
                 isNextPageDisable={isNextPageDisable}
             />
         </PageSection>
