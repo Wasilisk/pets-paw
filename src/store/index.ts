@@ -9,13 +9,15 @@ import logsReducer from './slices/logs-slice';
 import breedsReducer from './slices/breeds-slice';
 import categoriesReducer from './slices/categories-slice';
 import galleryReducer from './slices/gallery-slice';
+import uploadReducer from "./slices/upload-slice";
 
 const reducers = combineReducers({
     voting: votingReducer,
     action_logs: logsReducer,
     breeds: breedsReducer,
     categories: categoriesReducer,
-    gallery: galleryReducer
+    gallery: galleryReducer,
+    upload: uploadReducer
 });
 
 const persistConfig = {
