@@ -1,6 +1,7 @@
+export type BreedsSortType = "desc" | "asc";
+
 export type BreedFilters = {
-    breedName: string | undefined,
     limit: number,
     page: number,
-    sortType: "desc" | "asc"
+    sortType: BreedsSortType
 }
