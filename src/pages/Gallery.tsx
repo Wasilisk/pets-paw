@@ -14,6 +14,7 @@ import {EmptyLabel} from '../components/Labels';
 import {ImageGrid, GalleryImageGridItem} from '../components/Common/Grid';
 import {PageNavigation} from '../components/Common';
 import {GalleryButtonsGroup, PaginationButtonGroup} from '../components/Buttons/ButtonsGroups';
+import {UploadPopupButton} from '../components/Buttons';
 
 /*models*/
 import {Image} from '../models/common';
@@ -48,7 +49,9 @@ const Gallery = () => {
 
     return (
         <PageSection>
-            <PageNavigation/>
+            <PageNavigation>
+            <UploadPopupButton/>
+            </PageNavigation>
             <GalleryButtonsGroup filters={filters} setFilters={setFilters}/>
             {
                 isGalleryLoading
