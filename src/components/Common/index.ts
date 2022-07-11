@@ -8,3 +8,5 @@ export * from './HomeBanner';
 export * from './MainMenu';
 export * from './MenuCard';
 export * from './PageNavigation';
+export * from './Portal';
+export * from './OverlayingPopup';
