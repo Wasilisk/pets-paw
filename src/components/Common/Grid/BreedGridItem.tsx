@@ -1,10 +1,10 @@
 /*node-modules*/
 import React from 'react';
-import styled from "styled-components";
-import {Link} from "react-router-dom";
+import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 /*models*/
-import {Breed} from "../../../models/common/breed";
+import {Breed} from '../../../models/common';
 
 type BreedGridItemProps = {
     breedInfo: Breed
