@@ -25,6 +25,7 @@ const PathLabelsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-grow: 1;
   
   ${PathLabel}:last-child {
     color: #FFFFFF;
