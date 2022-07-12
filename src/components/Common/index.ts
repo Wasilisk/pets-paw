@@ -10,3 +10,4 @@ export * from './MenuCard';
 export * from './PageNavigation';
 export * from './Portal';
 export * from './OverlayingPopup';
+export * from './MenuPopup';

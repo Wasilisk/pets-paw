@@ -18,7 +18,7 @@ import {ReactComponent as CloseIcon} from '../../assets/icons/close.svg';
 
 const UploadImageContainer = styled.div`
   width: 680px;
-  height: 840px;
+  height: 100%;
   background: #F8F8F7;
   border-radius: 20px;
   padding: 20px;
@@ -50,6 +50,23 @@ const UploadImageContainer = styled.div`
       text-decoration: none;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    border-radius: 0;
+    
+    .popup-title {
+      font-size: 20px;
+      line-height: 29px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .description {
+      margin-bottom: 0;
+    }
+  }
+  
 `
 
 type UploadImageSectionProps = {
@@ -75,11 +92,11 @@ export const UploadImageSection = ({onClose}: UploadImageSectionProps) => {
 
     return (
         <UploadImageContainer>
-            <IconButton variant="primary" onClick={onClose}>
+            <IconButton variant="secondary" onClick={onClose}>
                 <CloseIcon/>
             </IconButton>
             <h2 className="popup-title">Upload a .jpg or .png Cat Image</h2>
-            <p>
+            <p className="description">
                 Any uploads must comply with the
                 <a href="https://thecatapi.com/privacy"> upload guidelines </a>
                 or face deletion.

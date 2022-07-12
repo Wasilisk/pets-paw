@@ -17,6 +17,12 @@ const PaginationButtonContainer = styled.div`
   ${PaginationButton}:first-child {
     margin-right: 40px;
   }
+
+  @media (max-width: 375px) {
+    ${PaginationButton}:first-child {
+      margin-right: 10px;
+    }
+  }
 `
 type PaginationButtonGroupPros = {
     page: number

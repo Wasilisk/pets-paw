@@ -76,22 +76,24 @@ const Breeds = () => {
             <PageNavigation>
                 <Select width="226px" value={null} changeValue={changeBreedName} defaultValue="All breeds"
                         options={breedsOptions!}/>
-                <Select width="100px" value={filters.limit} changeValue={setLimit} options={options}/>
-                <SortButton isActive={!isSortButtonActive} onClick={() => {
-                    setSortType("asc")
-                }}>
-                    <AscSortIcon/>
-                </SortButton>
-                <SortButton isActive={isSortButtonActive} onClick={() => {
-                    setSortType("desc")
-                }}>
-                    <DescSortIcon/>
-                </SortButton>
+                <div>
+                    <Select width="100px" value={filters.limit} changeValue={setLimit} options={options}/>
+                    <SortButton isActive={!isSortButtonActive} onClick={() => {
+                        setSortType("asc")
+                    }}>
+                        <AscSortIcon/>
+                    </SortButton>
+                    <SortButton isActive={isSortButtonActive} onClick={() => {
+                        setSortType("desc")
+                    }}>
+                        <DescSortIcon/>
+                    </SortButton>
+                </div>
             </PageNavigation>
             {
                 isBreedsLoading
                     ? <ImageGridSkeleton limit={filters.limit}/>
-                    :  <ImageGrid>
+                    : <ImageGrid>
                         {breedsList?.map((breed: Breed) => <BreedGridItem key={breed.id} breedInfo={breed}/>)}
                     </ImageGrid>
             }

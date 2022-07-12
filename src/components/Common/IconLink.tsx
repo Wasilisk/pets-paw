@@ -11,6 +11,7 @@ export const IconLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   transition: 0.2s all;
+  border: none;
   
   &:hover {
     background: #FBE0DC;

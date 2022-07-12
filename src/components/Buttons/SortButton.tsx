@@ -5,7 +5,7 @@ type SortButtonProps = {
 }
 
 export const SortButton = styled.button<SortButtonProps>`
-  width: 40px;
+  min-width: 40px;
   height: 40px;
   background: #F8F8F7;
   border-radius: 10px;

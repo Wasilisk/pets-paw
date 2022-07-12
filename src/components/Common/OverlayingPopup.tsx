@@ -29,6 +29,10 @@ const OverlayingPopupContainer = styled.div`
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
   }
+
+  @media (max-width: 1440px) {
+    padding: 0;
+  }
 `;
 
 type OverlayingPopupProps = {

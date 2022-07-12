@@ -11,16 +11,21 @@ import {useAppSelector} from '../../hooks';
 /*components*/
 import {ActionLog} from '../Common';
 
-const ActionLogsContainer = styled.div`
+export const ActionLogsContainer = styled.div`
   max-height: 280px;
-  margin-top: 52px;
   display: flex;
+  margin-top: auto;
   flex-direction: column;
   overflow-y: scroll;
   -ms-overflow-style: none;
   
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (max-width: 425px) {
+    margin-top: 30px;
+    max-height: 380px;
   }
 `;
 

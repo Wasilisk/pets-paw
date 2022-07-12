@@ -5,8 +5,8 @@ import styled from 'styled-components';
 /*icons*/
 import {ReactComponent as SearchIcon} from '../../assets/icons/search.svg'
 
-const SearchContainer = styled.div`
-  width: 470px;
+export const SearchContainer = styled.div`
+  flex-grow: 1;
   height: 60px;
   background: #FFFFFF;
   border-radius: 20px;
@@ -45,6 +45,12 @@ const SearchContainer = styled.div`
       line-height: 30px;
       color: #8C8C8C;
       transition: all 0.2s;
+      white-space: nowrap;
+      width: 95%;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      text-overflow: ellipsis;
     }
   }
   

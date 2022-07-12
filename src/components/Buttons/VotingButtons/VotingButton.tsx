@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 /*models*/
-import {Action} from '../../../models/common/action';
+import {Action} from '../../../models/common';
 
 export type VotingAction = Omit<Action, "created_at" | "id">;
 
@@ -13,7 +13,7 @@ export type VotingButtonProps = {
 }
 
 export const VotingButton = styled.button`
-  height: 80px;
+  height: 100%;
   width: 80px;
   border: none;
   transition: 0.2s ease; 

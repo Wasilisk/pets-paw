@@ -67,6 +67,21 @@ const ImageUploadContainer = styled.div<ImageUploadContainerProps>`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    
+  }
+
+  @media (max-width: 375px) {
+    height: 170px;
+    padding: 10px 20px;
+    
+    p {
+      width: 200px;
+      margin: 0;
+      text-align: center;
+    }
+  }
 `
 
 type ImageUploadProps = {

@@ -16,7 +16,19 @@ const VotingButtonGroupContainer= styled.div`
   align-items: center;
   position: absolute;
   left: calc(50% - 124px);
-  top: calc(100% - 40px);
+  top: calc(100% - 92px);
+
+  @media (max-width: 425px) {
+    height: 60px;
+    width: 186px;
+    left: calc(50% - 96px);
+    top: calc(100% - 40px);
+    
+    svg {
+      height: 22px;
+      width: 22px;
+    }
+  }
 `;
 
 type VotingButtonGroupProps = {

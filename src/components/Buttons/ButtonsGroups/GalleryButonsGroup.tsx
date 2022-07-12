@@ -1,20 +1,22 @@
 /*node-modules*/
 import React, {useEffect} from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 /*hooks*/
-import {useAppDispatch, useAppSelector} from "../../../hooks";
+import {useAppDispatch, useAppSelector} from '../../../hooks';
 
 /*store*/
-import {getAllBreeds, selectAllBreedsId} from "../../../store/slices/breeds-slice";
+import {getAllBreeds, selectAllBreedsId} from '../../../store/slices/breeds-slice';
 
 /*components*/
-import {OptionType, Select} from "../../Common/Select";
-import {IconButton} from "../IconButton";
+import {OptionType, Select} from '../../Common/Select';
+import {IconButton} from '../IconButton';
 
-import {GalleryFilters} from "../../../models/filters";
+/*models*/
+import {GalleryFilters} from '../../../models/filters';
 
-import {ReactComponent as RefreshIcon} from "../../../assets/icons/refresh.svg";
+/*icons*/
+import {ReactComponent as RefreshIcon} from '../../../assets/icons/refresh.svg';
 
 const GalleryButtonsGroupContainer = styled.div`
   display: grid;
@@ -51,6 +53,25 @@ const GalleryButtonsGroupContainer = styled.div`
     button {
       margin-left: 10px;
       margin-top: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  @media (max-width: 375px) {
+    .refresh-block {
+      flex-direction: column;
+      
+      & > * {
+        width: 100%;
+      }
+      
+      button {
+        margin: 10px 0 0 0;
+      }
     }
   }
 `

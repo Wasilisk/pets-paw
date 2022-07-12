@@ -18,6 +18,10 @@ const MainMenuContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   
+  & > *:not(:last-child) {
+    margin-right: 16px;
+  }
+  
   .active {
     ${MenuCard} {
       border: 4px solid #FBE0DC;
@@ -26,6 +30,28 @@ const MainMenuContainer = styled.div`
     ${MenuButton} {
       background: #FF868E;
       color: #FFFFFF;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+
+    a {
+      width: 100%;
+    }
+
+    & > *:not(:last-child) {
+      margin-right: 0;
+    }
+    
+    ${MenuCard} {
+      display: none;
+    }
+
+    ${MenuButton} {
+      width: 100%;
     }
   }
 `;

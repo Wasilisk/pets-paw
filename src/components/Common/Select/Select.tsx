@@ -27,7 +27,7 @@ type SelectElementProps = {
     variant: "primary" | "secondary"
 }
 
-const SelectElement = styled.div<SelectElementProps>`
+export const SelectElement = styled.div<SelectElementProps>`
   height: 40px;
   width: ${({width}) => width ? width : "100%"};
   border-radius: 10px;
@@ -42,7 +42,7 @@ const SelectElement = styled.div<SelectElementProps>`
   -webkit-appearance: none;
   position: relative;
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 16px;;
   line-height: 24px;
   color: ${({variant}) => variant === "primary" ? "#8C8C8C" : "#1D1D1D"};
   display: flex;
@@ -59,12 +59,11 @@ const SelectElement = styled.div<SelectElementProps>`
 `;
 
 type DropdownProps = {
-    width?: string,
     isOpen: boolean
 }
 
 const Dropdown = styled.div<DropdownProps>`
-  width: ${({width}) => width ? width : "100%"};
+  width: 100%;
   max-height: 380px;
   position: absolute;
   left: 0;
@@ -73,6 +72,7 @@ const Dropdown = styled.div<DropdownProps>`
   background: #FFFFFF;
   border-radius: 10px;
   padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
   z-index: 2;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -92,7 +92,7 @@ export const Select = ({width, defaultValue, options, changeValue, value, varian
     return (
         <SelectElement variant={variant} width={width} isOpen={isOpen} onClick={onClickHandler}>
             <p>{value ? options.find((option) => option.value === value)?.label : defaultValue}</p>
-            <Dropdown width={width} isOpen={isOpen}>
+            <Dropdown isOpen={isOpen}>
                 {
                     defaultValue
                         ? <SelectItem onClick={() => changeValue(null)}>{defaultValue}</SelectItem>

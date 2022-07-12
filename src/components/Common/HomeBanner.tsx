@@ -15,6 +15,10 @@ const HomeBannerContainer = styled.div`
   border-radius: 20px;
   margin-right: 18px;
   margin-top: 10px;
+
+  @media (max-width: 1440px) {
+    display: none;
+  }
 `
 
 export const HomeBanner = () => {

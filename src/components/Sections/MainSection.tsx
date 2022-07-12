@@ -8,7 +8,7 @@ import {MainMenu} from '../Common';
 /*icons*/
 import {ReactComponent as Logo} from '../../assets/logo/Logo.svg'
 
-const MainContainer = styled.div`
+export const MainContainer = styled.div`
   width: 446px;
   height: 544px;
   top: 10px;
@@ -38,6 +38,14 @@ const MainContainer = styled.div`
     line-height: 29px;
     color: #1D1D1D;
     margin-bottom: 20px;
+  }
+
+  @media (max-width: 1440px) {
+    width: auto;
+    height: auto;
+    padding: 20px;
+    max-width: 446px;
+    margin: 0 auto;
   }
 `
 

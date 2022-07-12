@@ -9,12 +9,12 @@ import {ReactComponent as FavouriteIcon} from '../../assets/icons/favourite.svg'
 import {ReactComponent as DislikeIcon} from '../../assets/icons/dislike.svg';
 
 /*models*/
-import {Action} from "../../models/common";
+import {Action} from '../../models/common';
 
 const ActionLogContainer = styled.div`
   width: 100%;
-  min-height: 60px;
-  padding: 0 25px;
+  height: auto;
+  padding: 15px;
   background: #F8F8F7;
   border-radius: 10px;
   display: flex;
@@ -59,6 +59,17 @@ const ActionLogContainer = styled.div`
   .dislikes {
     path {
       fill: #FFD280;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    .action-description {
+      order: 2;
+      flex: 100%;
+      margin: 10px 0 0 0;
     }
   }
 `;
